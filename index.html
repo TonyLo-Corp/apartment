@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Apartments</title>
+        <meta charset="utf-8"/> <!--Specifies the type of encoding; tells what character set you're using
+        <!--Below: This is telling the browser to set the width of the content to the width of the device itself, and to scale that content to 1 on load.-->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!--Links to W3 library-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"> <!--Sets the font type-->
+        <link rel="stylesheet" href="main.css"> <!--Links to main.css-->
+        <!--Below: Link for the Icons; from website: Font Awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    </head>
+    
+    
+    <body>
+    <!-- Navbar --------------------------------------------------------------------------------------------------------------------->
+        <div class = "w3-top"> <!--Creates container for section to be at top-->
+            <div class="w3-bar w3-white w3-card-2" id="myNavbar"> <!--w3-card displaying paper-like cards-->
+                <a href="#home" class="w3-bar-item w3-button w3-wide">Logo</a>
+                
+                <div class="w3-right w3-hide-small">
+                    <!--Below: The href="#about" navigates to the section with the id='about'-->
+                    <a href="#amenities" class="w3-bar-item w3-button"><i class="fa fa-bath"></i>AMENITIES</a> 
+                    <a href="#attractions" class="w3-bar-item w3-button" class="fa fa-taxi">ATTRACTIONS</a> 
+                    <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
+                    <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+                </div>
+                
+                <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+                <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+                  
+            </div>            
+        
+            <!--Small Screen Version of Navbar-->
+            <!--Sidebar on small screens when clicking the menu icon (bundles up the links) -->
+            <nav class="w3-sidebar w3-bar-block w3-black w3-card-2 w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
+                <!-- The void(0) prevents the page from opening a new tab-->
+                <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close</a>
+                <a href="#amenities" onclick="w3_close()" class="w3-bar-item w3-button">AMENITIES</a>
+                <a href="#attractions" onclick="w3_close()" class="w3-bar-item w3-button">ATTRACTIONS</a>
+                <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
+                <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+        
+            </nav>
+        </div>
+    
+    <!-- End Navbar -----------------------------------------------------------------------------------------------------------------> 
+        
+        <!-- SlideShow Header (The Front Page) -------------------------------------------------------------------------------------->
+        <!--Below: Sets the Link of Home to go here-->
+        <!--Below: w3-container = container for w3-display-classes; allows for use-->
+        
+        <div class="w3-container" id="home"> <!-- Main Big Image -->
+            <div class="w3-display-container mySlides"> <!--Calls upon JavaScript mySlides; Hides element-->
+                <img src="imgs/Apt2D_LivingRoom.jpg" style="width:100%; margin-bottom:-6px"> <!--First Big Image-->
+                <div class="w3-display-bottomleft w3-container w3-black"> <!--Displays Label-->
+                    <p>Living Room</p>
+                </div>
+            </div>
+            <div class="w3-display-container mySlides">
+                <img src="imgs/Apt2A_Room1.jpg" style="width:100%; margin-bottom:-6px">
+                <div class="w3-display-bottomleft w3-container w3-black">
+                    <p>Dining Room</p>
+                </div>
+            </div>
+            <div class="w3-display-container mySlides">
+                <img src="imgs/Apt2B_LivingRoom.jpg" style="width:100%; margin-bottom:-6px">
+                <div class="w3-display-bottomleft w3-container w3-black">
+                    <p>Bedroom</p>
+                </div>
+            </div>
+            <div class="w3-display-container mySlides">
+                <img src="imgs/Apt2B_Room2.jpg" style="width:100%; margin-bottom:-6px">
+                <div class="w3-display-bottomleft w3-container w3-black">
+                    <p>Living Room II</p>
+                </div>
+            </div>
+        </div>
+        
+        <!--Below is the section of all the available pictures which you can choose to view on the bigger screen-->
+        <div class="w3-row-padding w3-section"> <!-- Small Images Settings-->
+            <div class="w3-col s3">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="imgs/Apt2D_LivingRoom.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)" title="Living room">
+            </div>
+            <div class="w3-col s3">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="imgs/Apt2A_Room1.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)" title="Dining room">
+            </div>
+            <div class="w3-col s3">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="imgs/Apt2B_LivingRoom.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)" title="Bedroom">
+            </div>
+            <div class="w3-col s3">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="imgs/Apt2B_Room2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(4)" title="Second Living Room">
+            </div>
+        </div>
+        
+        <!-- End of Front Page Poster board ----------------------------------------------------------------------------------------->
+        
+        <!-- Info Section ----------------------------------------------------------------------------------------------------------->
+        <div class="w3-container" id="amenities">
+            <!--Below List the features of each apartments-->
+            <hr>
+            <h4><strong>Amenities</strong></h4>
+            <div class="w3-row w3-large">
+                <div class="w3-col s4">
+                    <h4>Features</h4>
+                    <p><i class="fa fa-fw fa-s15"></i> Bathroom</p>
+                    <p><i class="fa fa-fw fa-wifi"></i> Heating</p>
+                    <p><i class="fa fa-fw fa-thermometer-empty"></i> Central Air</p>
+                    <p><i class="fa fa-fw fa-shower"></i> Sprinkler System</p>
+                    <p><i class="fa fa-fw fa-video-camera"></i> Video Patrol</p>
+                </div>
+                <div class="w3-col s4">
+                    <h4>Living Space</h4>
+                    <p><i class="fa fa-fw fa-envira"></i> Carpet</p>
+                    <p><i class="fa fa-fw fa-envira"></i> Closets</p>
+                    <p><i class="fa fa-fw fa-beer"></i> Dining Room</p>
+                    <p><i class="fa fa-fw fa-columns"></i> Wideview Windows</p>
+                    <p><i class="fa fa-fw fa-lock"></i> Secured Doors</p>
+                </div>
+                <div class="w3-col s4">
+                    <h4>Kitchen</h4>
+                    <p><i class="fa fa-fw fa-cutlery"></i> Kitchen</p>
+                    <p><i class="fa fa-fw fa-cutlery"></i> Stove</p>
+                    <p><i class="fa fa-fw fa-cutlery"></i> Microwave</p>
+                    <p><i class="fa fa-fw fa-cutlery"></i> Refrigerator</p>
+                    <p><i class="fa fa-fw fa-envira"></i> Laminated Hardwood Flooring</p>
+                </div>
+            </div>
+            <hr>
+        </div>    
+        <!-- End of Info Section ---------------------------------------------------------------------------------------------------->
+        
+        <!-- Attractions Near By ---------------------------------------------------------------------------------------------------->
+
+        <div class="w3-container w3-padding-48 w3-blue" align="center" id="attractions">
+            <h2>Attractions Nearby</h2>
+            <p>69th Street is a popular shopping district that has something to offer everyone. There are a variety of shops from clothing stores to popular restaurants; if you want entertainment, there is a movie theater right around the corner. For transportation, 69th street station is just right across the street and they provide you with buses, trollies, and trains. With so many stores and attractions, you will not be bored. </p>
+            
+            <!--Slideshow (Far Left Side)-->
+            <div id="myCarousel" class="carousel slide w3-col s4 w3-padding-large" data-ride="carousel">
+                
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="imgs/mcdonalds.jpg" alt="MCDONALDS" style="width:100%">
+                        <br>
+                        <p>McDonald's: We've all been there, your place to get burger and fries.</p>
+                    </div>
+                    
+                    <div class="item">
+                        <img src="imgs/crownFriedChicken.jpg" alt="CrownFriedChicken" style="width:100%;">
+                        <br>
+                        <p>Fried Chicken Restaurant; get your comfort food here.</p>
+                    </div>
+                    
+                    <div class="item">
+                        <img src="imgs/foodland.jpg" alt="FoodLandSuperMarket" style="width:100%;">
+                        <br>
+                        <p>If you go grocery shopping on an empty stomach, you might find yourself the proud owner of aisle 3.</p>
+                    </div>
+                </div>          
+            </div>
+
+            <!--Slideshow (Middle)-->
+            <div id="myCarousel2" class="carousel slide w3-col s4 w3-padding-large" data-ride="carousel">
+                
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="imgs/septa.jpg" alt="SEPTA" style="width:100%;">
+                        <br>
+                        <p>Public transportation at its finest.</p>
+                    </div>
+                    
+                    <div class="item">
+                        <img src="imgs/hmart.jpg" alt="HMART" style="width:100%;">
+                        <br>
+                        <p>Asian supermarket. Have you ever seen the number of soy sauce choices there? This pretty much describes asian culture.</p>
+                    </div>
+                    
+                    <div class="item">
+                        <img src="imgs/studioGrill.jpg" alt="StudioMovieGrill" style="width:100%;">
+                        <br>
+                        <p>Food, movie and sometimes drama too.</p>
+                    </div>
+                </div>          
+            </div>
+
+            <!--Slideshow (Far Right Side)-->
+            <div id="myCarousel3" class="carousel slide w3-col s4 w3-padding-large" data-ride="carousel">
+                
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="imgs/pretzel.jpg" alt="PHILLYPRETZELFACTORY" style="width:100%;">
+                        <br>
+                        <p>Simple, cheap, delicious, fast. What more could you want in a Philly Pretzel Factory?</p>
+                    </div>
+                    
+                    <div class="item">
+                        <img src="imgs/tower.jpg" alt="TowerTheater" style="width:100%;">
+                        <br>
+                        <p>You can sometime meet famous people here.</p>
+                    </div>
+                    
+                    <div class="item">
+                        <img src="imgs/ross.jpg" alt="ROSS" style="width:100%;">
+                        <br>
+                        <p>That one clothing store you sometimes go to.</p>
+                    </div>
+                </div>          
+            </div>
+            <br>
+        </div>
+
+        <!-- End of Attractions ----------------------------------------------------------------------------------------------------->
+
+        
+        <!-- Pricing Section -------------------------------------------------------------------------------------------------------->
+        <div class="w3-container w3-center w3-dark-grey" style="padding:80px 16px" id="pricing">
+            <h3>PRICING</h3>
+            <p class="w3-large">Apartment Amentities</p>
+            <div class="w3-row-padding" style="margin-top:64px"> <!-- Sets the container for all three pricing columns-->
+                
+                <!--Left Section of Pricing-->
+                <div class="w3-third w3-section">                                   <!--Sections off most left side 1/3-->
+                    <ul class="w3-ul w3-white w3-hover-shadow">                     <!--Makes a list-->
+                        <li class="w3-black w3-xlarge w3-padding-32">2 Bedroom</li> <!--Type of Apartment-->
+                        <li class="w3-padding-16">Apartment 2B</li>                 <!--Location Position on floor-->
+                        <li class="w3-padding-16">Size: ? Sq Ft</li>                <!--Size of the Apartment-->
+                        <li class="w3-padding-16">Street View</li>                  <!--Outdoor View of Apartment-->
+                        <li class="w3-padding-16">Status: Available</li>            <!--Availability-->
+                        <li class="w3-padding-16">                                  <!--Cost of Rent-->
+                            <h2 class="w3-wide">$ 1200</h2>
+                            <span class="w3-opacity">per month</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!--Middle Section of Pricing-->
+                <div class="w3-third">
+                    <ul class="w3-ul w3-white w3-hover-shadow">
+                        <li class="w3-red w3-xlarge w3-padding-48">Studio</li>
+                        <li class="w3-padding-16">Apartment 2C</li>
+                        <li class="w3-padding-16">Size: ? Sq Ft</li>
+                        <li class="w3-padding-16">Rear View</li>
+                        <li class="w3-padding-16">Status: Not Available</li>
+                        <li class="w3-padding-16">
+                            <h2 class="w3-wide">$ 950</h2>
+                            <span class="w3-opacity">per month</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!--Right Section of Pricing-->
+                <div class="w3-third w3-section">
+                    <ul class="w3-ul w3-white w3-hover-shadow">
+                        <li class="w3-black w3-xlarge w3-padding-32">2 Bedroom</li>
+                        <li class="w3-padding-16">Apartment 2D</li>
+                        <li class="w3-padding-16">Size: ? Sq Ft</li>
+                        <li class="w3-padding-16">Rear View</li>
+                        <li class="w3-padding-16">Status: Available</li>
+                        <li class="w3-padding-16">
+                            <h2 class="w3-wide">$ 1200</h2>
+                            <span class="w3-opacity">per month</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            
+        <!-- End Pricing Section ---------------------------------------------------------------------------------------------------->    
+        
+        <!-- Contact Section -------------------------------------------------------------------------------------------------------->
+
+        <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+            <h3 class="w3-center">CONTACT</h3>
+            <p class="w3-center w3-large">If you have any questions, do not hesitate to contact us.</p>
+            <div class="w3-row-padding" style="margin-top:64px">
+                <div class="w3-half">
+                    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Upper Darby, PA</p>
+                    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: 2674752276</p>
+                    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: Leviremember@gmail.com</p>
+                    <br>
+                    <form action="/action_page.php" target="_blank">
+                        <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+                        <p>
+                            <button class="w3-button w3-black" type="submit">
+                                <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                            </button>
+                        </p>
+                    </form>
+                </div>
+                <div class="w3-half">
+                    <!-- Add Google Maps -->
+                    <div id="googleMap" class="w3-greyscale-max" style="width:100%;height:510px;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- End Contact Section ---------------------------------------------------------------------------------------------------->
+        
+        
+        <!-- Footer ----------------------------------------------------------------------------------------------------------------->
+        <footer class="w3-center w3-black w3-padding-64">
+            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+            <div class="w3-xlarge w3-section">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+            </div>
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+        </footer>
+        
+        <!-- End Footer ------------------------------------------------------------------------------------------------------------->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--Links JavaScript -->
+        <script src="main.js"></script>
+        <!--Links JQuery-->>
+        <script src="jquery-3.2.1.js"></script>
+        <!-- Allows access to Google Maps-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBXNDab_RGJzHvzffI_QOnugwi-PnVvQM&callback=myMap"></script>
+    </body>
+</html>
+
+
